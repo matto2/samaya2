@@ -1,0 +1,32 @@
+---
+import "../styles/global.css";
+const { title } = Astro.props;
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-white">
+    <div class="flex flex-col min-h-screen">
+      <!-- Main Content -->
+      <main class="flex-grow p-4 max-w-7xl mx-auto w-full bg-amber-300">
+        <Nav />
+        <h2></h2>
+        <slot />
+      </main>
+
+      <!-- Footer remains inside the flex container -->
+      <Footer />
+    </div>
+
+    <script src="/src/scripts/fslightbox.js"></script>
+  </body>
+</html>

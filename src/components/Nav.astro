@@ -1,0 +1,43 @@
+---
+const { currentPage } = Astro.props; // Pass the current page as a prop
+const navItems = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "Contact", href: "/contact" },
+];
+---
+
+<nav
+  class="md:flex items-center justify-between text-text-dark md:pt-4 pt-0 pb-8 md:pb-0"
+>
+  <!-- Logo and Title -->
+  <a
+    href="/"
+    class="flex justify-center md:justify-start items-center space-x-4"
+  >
+    <img src="/scf-logo.svg" alt="logo" class="w-16 h-16 block" />
+    <h1 class="text-2xl md:text-3xl font-bold text-brand-primary font-serif">
+      Silver Coast Fitness
+    </h1>
+  </a>
+  <!-- Navigation Links -->
+  <div
+    class="flex justify-center md:justify-end space-x-6 md:space-x-12 text-xl px-4 md:px-0 text-brand-secondary"
+  >
+    {
+      navItems.map(({ name, href }) => (
+        <a
+          href={href}
+          class={`pb-1 pt-4 md:pt-0 ${
+            currentPage === name.toLowerCase()
+              ? "font-bold text-text-dark border-b-2 border-text-dark"
+              : "hover:text-rose-500"
+          }`}
+        >
+          {name}
+        </a>
+      ))
+    }
+  </div>
+</nav>
