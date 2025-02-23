@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: .88;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: #93c;
+      }
+
+      .cls-2 {
+        opacity: .66;
+      }
+
+      .cls-3 {
+        opacity: .44;
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-5 {
+        isolation: isolate;
+      }
+
+      .cls-6 {
+        mix-blend-mode: multiply;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="488.57" y1="949.03" x2="488.57" y2="25.26" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#ffaf3f"/>
+    </linearGradient>
+  </defs>
+  <g class="cls-5">
+    <g id="Layer_3" data-name="Layer 3">
+      <circle class="cls-4" cx="488.57" cy="487.14" r="461.89"/>
+    </g>
+    <g id="Layer_2" data-name="Layer 2">
+      <g class="cls-6">
+        <path class="cls-3" d="M483.6,284.12s219.29,209.53-1.41,444.86c-130.47-146.86-132.53-313.5,1.41-444.86Z"/>
+        <path class="cls-2" d="M266,343.28s-85.14,291.1,223.65,384.56c39.56-192.42-41.98-337.77-223.65-384.56Z"/>
+        <path class="cls-2" d="M712.68,342.28s85.14,291.1-223.65,384.56c-39.56-192.42,41.98-337.77,223.65-384.56Z"/>
+        <path class="cls-1" d="M83.52,543.07s99.27,286.6,405.09,183.85c-79.24-179.75-229.91-250.97-405.09-183.85Z"/>
+        <path class="cls-1" d="M893.62,544.07s-99.27,286.6-405.09,183.85c79.24-179.75,229.91-250.97,405.09-183.85Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
