@@ -22,6 +22,14 @@ color: var(--text-dark);
     background-color: var(--brand-primary);
 }
 
+.bg-brand-dark {
+    background-color: var(--brand-dark)  !important;
+}
+
+.hover\:bg-brand-dark:hover {
+    background-color: var(--brand-dark);
+}
+
 .text-text-dark {
     color: var(--text-dark);
 }
@@ -40,4 +48,16 @@ color: var(--text-dark);
 
 .text-text-medium {
     color: var(--text-medium);
+}
+
+.bg-brand-primary {
+    background-color: var(--brand-primary);
+}
+
+.bg-brand-dark {
+    background-color: var(--brand-dark);
+}
+
+.bg-brand-accent {
+    background-color: var(--brand-accent);
 }
