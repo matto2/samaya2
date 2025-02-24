@@ -1,1 +1,43 @@
 @import "tailwindcss";
+
+h1 {
+    font-family: 'Kaushan Script', cursive;
+  }
+
+body {
+color: var(--text-dark);  
+}
+
+  :root {
+    --font-serif: Kaushan Script;
+    --brand-primary: #86198F;
+    --brand-dark: #701A75;
+    --brand-accent: #F59E0B;
+    --text-light: #f5f5f4;
+    --text-medium: #78716c;
+    --text-dark: #44403c; 
+  }
+
+  .bg-brand-primary {
+    background-color: var(--brand-primary);
+}
+
+.text-text-dark {
+    color: var(--text-dark);
+}
+
+.text-brand-primary {
+    color: var(--brand-primary);
+}
+
+.text-brand-accent {
+    color: var(--brand-accent);
+}
+
+.text-text-light {
+    color: var(--text-light);
+}
+
+.text-text-medium {
+    color: var(--text-medium);
+}
