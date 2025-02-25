@@ -1,18 +1,17 @@
 @import "tailwindcss";
 
 h1 {
-    font-family: 'Kaushan Script', cursive;
-  }
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;}
 
 body {
 color: var(--text-dark);  
 }
 
   :root {
-    --font-serif: Kaushan Script;
-    --brand-primary: #86198F;
-    --brand-dark: #701A75;
-    --brand-accent: #F59E0B;
+    --brand-primary: #9daf92;
+    --brand-dark: #839975;
+    --brand-accent: #cc926a;
     --text-light: #f5f5f4;
     --text-medium: #78716c;
     --text-dark: #44403c; 
