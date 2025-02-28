@@ -6,16 +6,18 @@ import Layout from "../layouts/Layout.astro";
   <form
     name="contact"
     netlify
-    class="p-6 md:p-12 rounded-3xl max-w-4xl mx-auto md:mt-12 mb-16"
+    class="px-6 py-2 md:px-12 rounded-3xl max-w-4xl mx-auto md:mt-12 mb-16"
   >
     <p class="hidden">
       <label>
         Don’t fill this out if you’re human: <input name="bot-field" />
       </label>
     </p>
-    <h3 class="text-2xl font-bold text-text-dark mb-6 pt-0">
-      Contact us for a free consultation!
-    </h3>
+    <h3 class="text-2xl font-bold text-text-dark mb-2 pt-0">Contact us</h3>
+    <p class="mb-6">
+      Feel free to reach out with any questions about scheduling or our
+      services!
+    </p>
     <!-- Name Input -->
     <div class="flex flex-col mb-6">
       <label for="name" class="text-text-dark font-semibold mb-2">Name</label>
@@ -23,7 +25,7 @@ import Layout from "../layouts/Layout.astro";
         type="text"
         name="name"
         id="name"
-        class="border border-text-text-medium rounded-lg p-3 focus:ring-2 focus:ring-fuchsia-600 focus:outline-none"
+        class="border border-text-text-medium rounded-lg p-3 focus:ring-2 focus:ring-[#cc926a] focus:outline-none"
         placeholder="Your Name"
         required
       />
@@ -36,7 +38,7 @@ import Layout from "../layouts/Layout.astro";
         type="email"
         name="email"
         id="email"
-        class="border border-text-text-medium rounded-lg p-3 focus:ring-2 focus:ring-fuchsia-600 focus:outline-none"
+        class="border border-text-text-medium rounded-lg p-3 focus:ring-2 focus:ring-[#cc926a] focus:outline-none"
         placeholder="Your Email"
         required
       />
@@ -51,17 +53,20 @@ import Layout from "../layouts/Layout.astro";
         name="message"
         id="message"
         rows="5"
-        class="border border-text-text-medium rounded-lg p-3 focus:ring-2 focus:ring-fuchsia-600 focus:outline-none resize-none"
+        class="border border-text-text-medium rounded-lg p-3 focus:ring-2 focus:ring-[#cc926a] focus:outline-none"
+        resize-none"
         placeholder="Your Message"
-        required></textarea>
+        required
+      >
+      </textarea>
     </div>
 
     <!-- Submit Button -->
     <div class="text-center md:text-left mt-6">
       <button
         type="submit"
-        class="bg-brand-primary text-text-light text-lg font-semibold py-3 px-8 rounded-full hover:bg-brand-dark focus:ring-2 focus:ring-fuchsia-600 focus:outline-none md:w-64 w-full transition
-        hover:bg-brand-dark cursor-pointer"
+        class="bg-brand-accent text-text-light text-lg px-6 py-2 rounded-xl shadow-lg cursor-pointer hover:bg-brand-dark transition
+    md:w-64 w-full focus:ring-2 focus:ring-[#cc926a] focus:outline-none"
       >
         Send
       </button>
