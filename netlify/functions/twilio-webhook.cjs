@@ -1,12 +1,14 @@
 const twilio = require("twilio");
 
-const accountSid = process.env.TWILIO_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
+const apiKeySid = process.env.TWILIO_API_KEY_SID;
+const apiKeySecret = process.env.TWILIO_API_KEY_SECRET;
+const accountSid = process.env.TWILIO_SID;  // Explicitly pass this!
 const twilioNumber = process.env.TWILIO_PHONE_NUMBER;
 const myPhoneNumber = process.env.MY_PHONE_NUMBER;
 const webhookSecret = process.env.CAL_WEBHOOK_SECRET;
 
-const twilioClient = twilio(accountSid, authToken);
+// ✅ Correct Twilio initialization for API Keys:
+const twilioClient = twilio(apiKeySid, apiKeySecret, { accountSid });
 
 module.exports.handler = async (event) => {
     try {
