@@ -10,6 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/mulish": "^5.1.1",
+    "@fontsource-variable/nunito": "^5.1.1",
     "@fontsource/kaushan-script": "^5.1.1",
     "@fontsource/poppins": "^5.1.1",
     "@tailwindcss/vite": "^4.0.8",

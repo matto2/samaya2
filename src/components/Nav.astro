@@ -1,8 +1,9 @@
 ---
-const { currentPage } = Astro.props; // Pass the current page as a prop
+const { currentPage } = Astro.props;
+
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
+  { name: "About Us", href: "/about" },
   { name: "Gallery", href: "/gallery" },
   { name: "Contact", href: "/contact" },
 ];
@@ -16,29 +17,33 @@ const navItems = [
     href="/"
     class="flex justify-center md:justify-start items-center space-x-4"
   >
-    <img src="/logo2.svg" alt="logo" class="w-16 h-16 text-brand-primary" />
-
-    <h1 class="text-2xl md:text-3xl font-bold text-brand-accent">
-      Samaya Cullerton Acupuncture
+    <img src="/logo2.svg" alt="logo" class="w-14 h-14 text-brand-primary" />
+    <h1 class="text-2xl md:text-2xl font-light text-brand-accent">
+      Wellness Medical Center
     </h1>
   </a>
+
   <!-- Navigation Links -->
   <div
-    class="flex justify-center md:justify-end space-x-6 md:space-x-12 text-xl px-4 md:px-0 text-brand-secondary"
+    class="flex justify-center md:justify-end space-x-6 md:space-x-12 text-lg md:text-xl px-4 md:px-0 text-brand-secondary"
   >
     {
-      navItems.map(({ name, href }) => (
-        <a
-          href={href}
-          class={`pb-1 pt-4 md:pt-0 ${
-            currentPage === name.toLowerCase()
-              ? "font-bold text-text-dark border-b-2"
-              : "hover:text-[#cc926a]"
-          }`}
-        >
-          {name}
-        </a>
-      ))
+      navItems.map(({ name, href }) => {
+        const isActive =
+          currentPage === href || (currentPage === "" && href === "/"); // Handle Home page case
+        return (
+          <a
+            href={href}
+            class={`pb-1 pt-1 md:pt-0 ${
+              isActive
+                ? "font-bold text-brand-accent border-b-2 border-brand-accent"
+                : "hover:text-[#cc926a]"
+            }`}
+          >
+            {name}
+          </a>
+        );
+      })
     }
   </div>
 </nav>

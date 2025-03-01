@@ -1,11 +1,20 @@
 ---
 import "../styles/global.css";
-const { title } = Astro.props;
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
+
 import "@fontsource/kaushan-script";
 import "@fontsource/poppins";
 import "@fontsource/poppins/300.css";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+// Supports weights 200-900
+import "@fontsource-variable/nunito";
+import "@fontsource-variable/mulish";
+
+// Get the current URL path
+const { title } = Astro.props;
+const currentPage = Astro.url.pathname; // This gives the current route (e.g., "/about")
 ---
 
 <!doctype html>
@@ -17,11 +26,21 @@ import "@fontsource/poppins/300.css";
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-stone-50">
-    <div class="flex flex-col min-h-screen">
+  <body class="bg-stone-50 relative">
+    <!-- Background Gradient (Full Width, 400px Height, Fades to Transparent at Bottom) -->
+    <div
+      class="absolute top-0 right-0 w-full h-[200px] opacity-40
+         bg-gradient-to-r from-[#9DAF92] via-[#9DAF92] to-[#CC926A]
+         after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full
+         after:bg-gradient-to-b after:from-transparent after:to-stone-50"
+    >
+    </div>
+
+    <div class="flex flex-col min-h-screen relative">
       <!-- Main Content -->
-      <main class="flex-grow p-4 max-w-7xl mx-auto w-full">
-        <Nav />
+      <main class="flex-grow p-4 max-w-7xl mx-auto w-full relative">
+        <Nav currentPage={currentPage} />
+        <!-- Pass the current page -->
         <h2></h2>
         <slot />
       </main>
