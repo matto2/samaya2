@@ -28,71 +28,68 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
   </head>
   <body class="bg-stone-50 relative">
     <!-- Background Gradient (Full Width, 400px Height, Fades to Transparent at Bottom) -->
-    <div
-      class="absolute top-0 right-0 w-full h-[200px] opacity-40
-         bg-gradient-to-r from-[#9DAF92] via-[#9DAF92] to-[#CC926A]
-         after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full
-         after:bg-gradient-to-b after:from-transparent after:to-stone-50"
-    >
-    </div>
+    <div class="absolute top-0 right-0 w-full h-screen">
+      <div class="flex
+      flex-col
+      min-h-screen
+      relative">
+        <!-- Main Content -->
+        <main class="flex-grow p-4 max-w-7xl mx-auto w-full relative">
+          <Nav currentPage={currentPage} />
+          <!-- Pass the current page -->
+          <h2></h2>
+          <slot />
+        </main>
 
-    <div class="flex flex-col min-h-screen relative">
-      <!-- Main Content -->
-      <main class="flex-grow p-4 max-w-7xl mx-auto w-full relative">
-        <Nav currentPage={currentPage} />
-        <!-- Pass the current page -->
-        <h2></h2>
-        <slot />
-      </main>
+        <!-- Footer remains inside the flex container -->
+        <Footer />
+      </div>
 
-      <!-- Footer remains inside the flex container -->
-      <Footer />
-    </div>
-
-    <script src="/src/scripts/fslightbox.js"></script>
-    <!-- Cal element-click embed code -->
-    <script type="text/javascript">
-      (function (C, A, L) {
-        let p = function (a, ar) {
-          a.q.push(ar);
-        };
-        let d = C.document;
-        C.Cal =
-          C.Cal ||
-          function () {
-            let cal = C.Cal;
-            let ar = arguments;
-            if (!cal.loaded) {
-              cal.ns = {};
-              cal.q = cal.q || [];
-              d.head.appendChild(d.createElement("script")).src = A;
-              cal.loaded = true;
-            }
-            if (ar[0] === L) {
-              const api = function () {
-                p(api, arguments);
-              };
-              const namespace = ar[1];
-              api.q = api.q || [];
-              if (typeof namespace === "string") {
-                cal.ns[namespace] = cal.ns[namespace] || api;
-                p(cal.ns[namespace], ar);
-                p(cal, ["initNamespace", namespace]);
-              } else p(cal, ar);
-              return;
-            }
-            p(cal, ar);
+      <script src="/src/scripts/fslightbox.js"></script>
+      <!-- Cal element-click embed code -->
+      <script type="text/javascript">
+        (function (C, A, L) {
+          let p = function (a, ar) {
+            a.q.push(ar);
           };
-      })(window, "https://app.cal.com/embed/embed.js", "init");
+          let d = C.document;
+          C.Cal =
+            C.Cal ||
+            function () {
+              let cal = C.Cal;
+              let ar = arguments;
+              if (!cal.loaded) {
+                cal.ns = {};
+                cal.q = cal.q || [];
+                d.head.appendChild(d.createElement("script")).src = A;
+                cal.loaded = true;
+              }
+              if (ar[0] === L) {
+                const api = function () {
+                  p(api, arguments);
+                };
+                const namespace = ar[1];
+                api.q = api.q || [];
+                if (typeof namespace === "string") {
+                  cal.ns[namespace] = cal.ns[namespace] || api;
+                  p(cal.ns[namespace], ar);
+                  p(cal, ["initNamespace", namespace]);
+                } else p(cal, ar);
+                return;
+              }
+              p(cal, ar);
+            };
+        })(window, "https://app.cal.com/embed/embed.js", "init");
 
-      Cal("init", "1-hour-session", { origin: "https://cal.com" });
+        Cal("init", "1-hour-session", { origin: "https://cal.com" });
 
-      Cal.ns["1-hour-session"]("ui", {
-        theme: "light",
-        cssVarsPerTheme: { light: { "cal-brand": "#86198F" } },
-        hideEventTypeDetails: false,
-        layout: "month_view",
-      });
-    </script>
+        Cal.ns["1-hour-session"]("ui", {
+          theme: "light",
+          cssVarsPerTheme: { light: { "cal-brand": "#86198F" } },
+          hideEventTypeDetails: false,
+          layout: "month_view",
+        });
+      </script>
+    </div>
   </body>
 </html>
