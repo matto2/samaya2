@@ -16,25 +16,27 @@ import Button from "../components/Button.astro";
   </div> -->
 
   <div class="max-w-7xl mx-auto text-lg md:mt-8 mt-2 md:mb-0 mb-6">
-    <div class="rounded-2xl text-text-dark py-4 md:max-w-3x">
-      <p class="text-xl text-left">
+    <div class="rounded-2xl text-text-dark sm:py-4 md:max-w-3x">
+      <p class="sm:text-xl text-left">
         Meet the dedicated team of experienced acupuncturists and wellness
         practitioners at Wellness Medical Center.
       </p>
     </div>
   </div>
   <div
-    class="max-w-7xl mx-auto pb-6 md:mt-6 grid grid-cols-1 md:grid-cols-3 gap-12"
+    class="max-w-7xl mx-auto pb-6 md:mt-6 grid grid-cols-1 md:grid-cols-3 md:gap-12 gap-2"
   >
     <section class="md:col-span-2">
-      <h2 class="text-3xl text-center md:text-4xl font-semibold py-2">
+      <h2
+        class="text-2xl sm:text-3xl text-center md:text-4xl font-semibold py-2"
+      >
         Samaya Cullerton
       </h2>
-      <p class="text-lg text-center md:text-xl mb-6 font-semibold">
+      <p class="sm:text-lg text-center md:text-xl mb-6 font-semibold">
         LAc, MTCM Traditional Family Medicine
       </p>
       <div
-        class="mx-auto rounded-full opacity-50 bg-brand-accent pb-4 mb-6 h-72 w-72"
+        class="mx-auto rounded-full opacity-50 bg-brand-accent pb-4 mb-6 w-48 h-48 sm:w-72 sm:h-72"
       >
       </div>
 
@@ -56,16 +58,22 @@ import Button from "../components/Button.astro";
         Central California Alliance for Health Insurance provider network,
         currently accepting new patients.
       </p>
-
-      <button
-        class="bg-brand-accent text-text-light font-semibold text-lg px-6 py-3 my-4 rounded-xl shadow-lg cursor-pointer hover:bg-brand-dark transition
-  focus:ring-2 focus:ring-[#cc926a] focus:outline-none md:w-64 w-full"
-        data-cal-link="mattosurf/1-hour-session"
-        data-cal-namespace="1-hour-session"
-        data-cal-config='{"layout":"month_view","theme":"light"}'
-      >
-        Schedule a Session
-      </button>
+      <div class="mt-6 flex flex-col md:flex-row justify-between w-full">
+        <button
+          class="bg-brand-accent text-text-light font-semibold text-lg px-6 py-3 rounded-xl shadow-lg cursor-pointer hover:bg-brand-dark transition
+  focus:ring-2 focus:ring-[#cc926a] focus:outline-none md:w-64 w-full mb-4 md:mb-0"
+          data-cal-link="mattosurf/1-hour-session"
+          data-cal-namespace="1-hour-session"
+          data-cal-config='{"layout":"month_view","theme":"light"}'
+        >
+          Schedule a Session
+        </button>
+        <img
+          src="/AllianceLogo.svg"
+          alt="Central California Alliance for Health Insurance logo"
+          class="mx-auto md:mx-0 w-16 h-16"
+        />
+      </div>
     </section>
 
     <section class="md:col-span-1">
