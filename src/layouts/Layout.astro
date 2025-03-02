@@ -36,6 +36,7 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
     <script type="text/javascript">
     // RJN
     document.addEventListener('DOMContentLoaded', (() =>
+    {
       const links = document.querySelectorAll("nav > div > a");
       if(links !== null)
       {
@@ -48,7 +49,8 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
           console.log(link_href);
           console.log("Path: " + path)
         });
-    }));      
+      }
+    }));
   </script>
   </head>
   <body class="bg-stone-50 relative">
