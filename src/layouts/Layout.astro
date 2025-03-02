@@ -35,19 +35,20 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
     </style>
     <script type="text/javascript">
     // RJN
-    const links = document.querySelectorAll("nav > div > a");
-    if(links !== null)
-    {
-      Array.from(links).forEach((link) =>
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll("nav > div > a");
+      if(links !== null)
       {
-        link.classList.remove("active_link");
-        const link_href = link.getAttribute("href").toString().toLowerCase();
-        const paths = window.location.href.split("/");
-        const path = paths[paths.length - 1].trim().toLowerCase();
-        console.log(link_href);
-        console.log("Path: " + path)
-      });      
-    }
+        Array.from(links).forEach((link) =>
+        {
+          link.classList.remove("active_link");
+          const link_href = link.getAttribute("href").toString().toLowerCase();
+          const paths = window.location.href.split("/");
+          const path = paths[paths.length - 1].trim().toLowerCase();
+          console.log(link_href);
+          console.log("Path: " + path)
+        });
+    });      
   </script>
   </head>
   <body class="bg-stone-50 relative">
