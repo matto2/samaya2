@@ -43,11 +43,21 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
         Array.from(links).forEach((link) =>
         {
           link.classList.remove("active_link");
-          const link_href = link.getAttribute("href").toString().toLowerCase();
-          const paths = window.location.href.split("/");
-          const path = paths[paths.length - 1].trim().toLowerCase().replace("/", "");
-          console.log(link_href);
-          console.log("Path: " + path)
+          let link_href = link.getAttribute("href").toString().toLowerCase().substring(1);
+
+          let href = window.location.href;
+          if(href[href.length - 1] === "/")
+          {
+            href = href.substring(1);            
+          }       
+          const path_elements = href.split("/");
+          const path = path_elements[path_elements.length - 1];
+
+          console.log(link_href + " === " + path_elements[path_elements.length - 1]);
+          if(link_href === path_elements[path_elements.length - 1])
+          {
+            link.classList.add("active_link")
+          }   
         });
       }
     }));
