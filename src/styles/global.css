@@ -83,4 +83,5 @@ color: var(--text-dark);
 {
     border-bottom: 2px solid var(--brand-accent);
     color: var(--brand-accent);
+    font-weight: 700;
 }
