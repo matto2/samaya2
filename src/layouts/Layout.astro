@@ -45,7 +45,7 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
           link.classList.remove("active_link");
           const link_href = link.getAttribute("href").toString().toLowerCase();
           const paths = window.location.href.split("/");
-          const path = paths[paths.length - 1].trim().toLowerCase();
+          const path = paths[paths.length - 1].trim().toLowerCase().replace("/", "");
           console.log(link_href);
           console.log("Path: " + path)
         });
