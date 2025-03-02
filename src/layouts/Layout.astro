@@ -40,7 +40,7 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
       const links = document.querySelectorAll("nav > div > a");
       if(links !== null)
       {
-        Array.from(links).forEach((link) =>
+        Array.from(links).forEach((link, idx) =>
         {
           // remove previous
           link.classList.remove("active_link");
@@ -63,9 +63,15 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
             
             console.log("PATH NAME: " + window.location.pathname);
             console.log("PATH" + path);
-            if(window.location.pathname !== "/")
+            if(window.location.pathname.trim() === "" || window.location.pathname.trim() === "/")
             {
-
+              if(idx === 0)
+              {
+                link.classList.add("active_link")
+              }
+            }
+            else
+            {
               link.classList.add("active_link")
             }
           }   
