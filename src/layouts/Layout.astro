@@ -60,7 +60,11 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
 
           if((link_href === path) || (link_href === path2)) 
           {
-            link.classList.add("active_link")
+            
+            if(window.location.pathname !== "/")
+            {
+              link.classList.add("active_link")
+            }
           }   
         });
       }
