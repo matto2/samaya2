@@ -82,5 +82,5 @@ color: var(--text-dark);
 .active_link
 {
     border-bottom: 2px solid var(--brand-accent);
-    font-weight: bold;
+    color: var(--brand-accent);
 }

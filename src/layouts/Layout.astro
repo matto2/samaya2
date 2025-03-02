@@ -29,6 +29,7 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
       .active_link
       {
         border-bottom: 2px solid var(--brand-accent);
+        color: var(--brand-accent);
       }
     </style>
     <script type="text/javascript">
@@ -39,8 +40,10 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
           {
             const el_path = el.getAttribute("href").toLowerCase().replace("/", "");
             const url_elements = window.location.href.split("/")
-            const this_url = url_elements[url_elements.length - 1];
-            //console.log(el_path + " === " + this_url)
+            const this_url = url_elements[url_elements.length - 1].trim();
+            console.log(el_path);
+            console.log(this_url);
+
             if(el_path === this_url)
             {
               el.classList.add("active_link");
@@ -50,9 +53,7 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
             {
               el.classList.remove("active_link")
               el.classList.remove("font-bold");
-            }
-
-      
+            }            
           });
 
           
