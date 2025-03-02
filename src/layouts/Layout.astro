@@ -25,11 +25,38 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <style type="text/css">
+      .active_link
+      {
+        border-bottom: 2px solid var(--brand-accent);
+        font-weight: bold;
+      }
+    </style>
     <script type="text/javascript">
       setInterval(() =>
       {
-          var els = Array.from(document.querySelctorAll("nav > div > a"));
-          consolel.log(els);
+          const els = Array.from(document.querySelectorAll("nav > div > a"));
+          els.forEach((el) =>
+          {
+            const el_path = el.getAttribute("href").toLowerCase().replace("/", "");
+            const url_elements = window.location.href.split("/")
+            const this_url = url_elements[url_elements.length - 1];
+           console.log(el_path + " === " + this_url)
+            if(el_path === this_url)
+            {
+              el.classList.add("active_link");
+              el.classList.add("font-bold");
+            }
+            else
+            {
+              el.classList.remove("active_link")
+              el.classList.remove("font-bold");
+            }
+
+      
+          });
+
+          
       }, 5);
     </script>
   </head>

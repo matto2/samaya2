@@ -78,3 +78,9 @@ color: var(--text-dark);
 .bg-brand-accent {
     background-color: var(--brand-accent);
 }
+
+.active_link
+{
+    border-bottom: 2px solid var(--brand-accent);
+    font-weight: bold;
+}
