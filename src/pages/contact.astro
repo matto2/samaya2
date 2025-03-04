@@ -20,47 +20,94 @@ import Layout from "../layouts/Layout.astro";
       Feel free to reach out with any questions about scheduling or our
       services!
     </p>
+
     <!-- Name Input -->
-    <div class="flex flex-col mb-6">
-      <label for="name" class="text-text-dark font-semibold mb-2">Name</label>
+    <div class="mb-6">
+      <label for="name" class="text-text-dark font-semibold mb-2 block"
+        >Name</label
+      >
       <input
         type="text"
         name="name"
         id="name"
-        class="border border-text-text-medium rounded-lg p-3 focus:ring-2 focus:ring-[#cc926a] focus:outline-none"
+        class="border border-text-text-medium rounded-lg p-3 w-full focus:ring-2 focus:ring-[#cc926a] focus:outline-none"
         placeholder="Your Name"
         required
       />
     </div>
 
     <!-- Email Input -->
-    <div class="flex flex-col mb-6">
-      <label for="email" class="text-text-dark font-semibold mb-2">Email</label>
+    <div class="mb-6">
+      <label for="email" class="text-text-dark font-semibold mb-2 block"
+        >Email</label
+      >
       <input
         type="email"
         name="email"
         id="email"
-        class="border border-text-text-medium rounded-lg p-3 focus:ring-2 focus:ring-[#cc926a] focus:outline-none"
+        class="border border-text-text-medium rounded-lg p-3 w-full focus:ring-2 focus:ring-[#cc926a] focus:outline-none"
         placeholder="Your Email"
         required
       />
     </div>
 
+    <!-- Phone Number Input -->
+    <div class="mb-6">
+      <label for="phone" class="text-text-dark font-semibold mb-2 block"
+        >Phone Number</label
+      >
+      <input
+        type="tel"
+        name="phone"
+        id="phone"
+        pattern="^\+?[1-9]\d{1,14}$"
+        class="border border-text-text-medium rounded-lg p-3 w-full focus:ring-2 focus:ring-[#cc926a] focus:outline-none"
+        placeholder="+1 (555) 555-5555"
+        required
+      />
+    </div>
+
     <!-- Message Input -->
-    <div class="flex flex-col">
-      <label for="message" class="text-text-dark font-semibold mb-2"
+    <div>
+      <label for="message" class="text-text-dark font-semibold mb-2 block"
         >Message</label
       >
       <textarea
         name="message"
         id="message"
         rows="5"
-        class="border border-text-text-medium rounded-lg p-3 focus:ring-2 focus:ring-[#cc926a] focus:outline-none"
-        resize-none"
+        class="border border-text-text-medium rounded-lg p-3 w-full focus:ring-2 focus:ring-[#cc926a] focus:outline-none"
         placeholder="Your Message"
+        required></textarea>
+    </div>
+
+    <!-- Opt-in for Email Marketing -->
+    <div class="grid grid-cols-[auto_1fr] gap-3 items-start mt-4">
+      <input
+        type="checkbox"
+        name="email_opt_in"
+        id="email_opt_in"
+        class="w-6 h-6 text-brand-accent border-gray-300 rounded focus:ring-[#cc926a] cursor-pointer"
+      />
+      <label for="email_opt_in" class="text-text-dark">
+        I agree to receive email updates and promotional offers.
+      </label>
+    </div>
+
+    <!-- Opt-in for SMS Marketing -->
+    <div class="grid grid-cols-[auto_1fr] gap-3 items-start mt-4">
+      <input
+        type="checkbox"
+        name="sms_opt_in"
+        id="sms_opt_in"
+        class="w-6 h-6 text-brand-accent border-gray-300 rounded focus:ring-[#cc926a] cursor-pointer"
         required
-      >
-      </textarea>
+      />
+      <label for="sms_opt_in" class="text-text-dark">
+        I consent to receive SMS messages for updates and promotional offers.
+        Message and data rates may apply. Reply STOP to unsubscribe. Terms &
+        Privacy Policy apply.
+      </label>
     </div>
 
     <!-- Submit Button -->
