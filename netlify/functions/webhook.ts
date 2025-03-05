@@ -6,8 +6,8 @@ const vonage = new Vonage({
   apiSecret: process.env.VONAGE_API_SECRET as string,
 });
 
-// Set the fixed phone number that will receive all appointment info
-const FIXED_PHONE_NUMBER = "+18453960964"; // Replace with your number
+// Set the fixed phone number that will receive the SMS
+const FIXED_PHONE_NUMBER = "+18311234567"; // Replace with your actual number
 
 export const handler: Handler = async (event) => {
   try {
@@ -35,24 +35,24 @@ export const handler: Handler = async (event) => {
       };
     }
 
-    console.log("📩 Received Webhook Data:", data);
+    console.log("📩 Full Webhook Data:", JSON.stringify(data, null, 2));
 
-    // Extract appointment details from Cal.com webhook
+    // ✅ Extract appointment details correctly
+    const eventTitle = data?.eventType?.title || "Unknown Event";
     const attendeeName = data?.attendees?.[0]?.name || "Unknown Attendee";
-    const eventType = data?.eventType?.title || "No Event Title";
     const startTime = data?.startTime || "Unknown Time";
 
-    // Format the SMS message
-    const message = `New appointment booked!\n📅 Event: ${eventType}\n🕒 Time: ${startTime}\n👤 Attendee: ${attendeeName}`;
+    // ✅ Format the message properly
+    const message = `📅 New Booking!\n🔹 Event: ${eventTitle}\n🔹 Time: ${startTime}\n🔹 Attendee: ${attendeeName}`;
 
-    // Send SMS to the FIXED number
+    // ✅ Send SMS to the fixed number
     await vonage.sms.send({
       to: FIXED_PHONE_NUMBER,
       from: process.env.VONAGE_VIRTUAL_NUMBER as string,
       text: message,
     });
 
-    console.log("✅ SMS Sent Successfully to", FIXED_PHONE_NUMBER);
+    console.log("✅ SMS Sent:", message);
 
     return {
       statusCode: 200,
