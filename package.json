@@ -15,7 +15,9 @@
     "@fontsource/kaushan-script": "^5.1.1",
     "@fontsource/poppins": "^5.1.1",
     "@tailwindcss/vite": "^4.0.8",
+    "@vonage/server-sdk": "^3.20.0",
     "astro": "^5.4.1",
+    "dotenv": "^16.4.7",
     "tailwindcss": "^4.0.8",
     "twilio": "^5.4.5"
   }
