@@ -6,9 +6,11 @@ const vonage = new Vonage({
   apiSecret: process.env.VONAGE_API_SECRET as string,
 });
 
+// Set the fixed phone number that will receive all appointment info
+const FIXED_PHONE_NUMBER = "+18453960964"; // Replace with your number
+
 export const handler: Handler = async (event) => {
   try {
-    // Ensure it's a POST request
     if (event.httpMethod !== "POST") {
       return {
         statusCode: 405,
@@ -16,7 +18,6 @@ export const handler: Handler = async (event) => {
       };
     }
 
-    // Check if the request body is empty
     if (!event.body) {
       return {
         statusCode: 400,
@@ -24,7 +25,6 @@ export const handler: Handler = async (event) => {
       };
     }
 
-    // Parse the JSON body safely
     let data;
     try {
       data = JSON.parse(event.body);
@@ -37,25 +37,22 @@ export const handler: Handler = async (event) => {
 
     console.log("📩 Received Webhook Data:", data);
 
-    // Extract phone number & booking details
-    const phone: string | undefined = data?.attendees?.[0]?.phoneNumber;
-    const message: string = `Your appointment is confirmed for ${data.startTime}`;
+    // Extract appointment details from Cal.com webhook
+    const attendeeName = data?.attendees?.[0]?.name || "Unknown Attendee";
+    const eventType = data?.eventType?.title || "No Event Title";
+    const startTime = data?.startTime || "Unknown Time";
 
-    if (!phone) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: "Phone number is required" }),
-      };
-    }
+    // Format the SMS message
+    const message = `New appointment booked!\n📅 Event: ${eventType}\n🕒 Time: ${startTime}\n👤 Attendee: ${attendeeName}`;
 
-    // Send SMS via Vonage
+    // Send SMS to the FIXED number
     await vonage.sms.send({
-      to: phone,
+      to: FIXED_PHONE_NUMBER,
       from: process.env.VONAGE_VIRTUAL_NUMBER as string,
       text: message,
     });
 
-    console.log("✅ SMS Sent Successfully");
+    console.log("✅ SMS Sent Successfully to", FIXED_PHONE_NUMBER);
 
     return {
       statusCode: 200,
