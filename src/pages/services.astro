@@ -1,0 +1,105 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
+import photo1 from "../assets/lake.jpg";
+import guasha from "../assets/guasha.jpg";
+import acu from "../assets/acu.jpg";
+import cupping from "../assets/cupping.jpg";
+import herbs from "../assets/herbs.jpg";
+import nutrition from "../assets/nutrition.jpg";
+import tuina from "../assets/tuina.jpg";
+import shonishin from "../assets/shonishin.jpg";
+import facial from "../assets/facial.jpg";
+import celluma from "../assets/celluma.jpg";
+import red from "../assets/red.webp";
+---
+
+<Layout title="Services">
+  <div class="text-text-dark sm:py-4 md:max-w-3x text-center">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold py-1">
+      Services
+    </h2>
+  </div>
+  <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 p-6">
+    <!-- Block 1 -->
+    <Card
+      img={acu}
+      alt="Acupuncture"
+      title="Acupuncture"
+      text="A traditional healing technique using fine needles to alleviate pain and address various health concerns."
+    />
+
+    <Card
+      img={cupping}
+      alt="Cupping"
+      title="Cupping"
+      text="A manual therapy that increases circulation, relieves pain, and improves body function."
+    />
+
+    <Card
+      img={guasha}
+      alt="Guasha"
+      title="Guasha"
+      text="Enhances circulation, relieves pain, and supports lymphatic drainage."
+    />
+
+    <Card
+      img={herbs}
+      alt="Herbalism"
+      title="Herbalism"
+      text="The use of plant extracts to support well-being, alleviate ailments, and manage symptoms."
+    />
+
+    <Card
+      img={nutrition}
+      alt="Nutritional Consultations"
+      title="Nutritional Consultations"
+      text="A holistic approach to optimizing diet and supplementation with nutraceuticals."
+    />
+
+    <Card
+      img={tuina}
+      alt="Tuina"
+      title="Tuina"
+      text="A therapeutic massage technique used to relieve pain, improve circulation, and manage symptoms."
+    />
+
+    <Card
+      img={shonishin}
+      alt="Shoni Shin"
+      title="Shoni Shin"
+      text="A gentle traditional therapy for babies and children as an alternative to acupuncture."
+    />
+
+    <Card
+      img={facial}
+      alt="Facial Rejuvenation Acupuncture"
+      title="Facial Rejuvenation Acupuncture"
+      text="A technique to enhance skin health, reducing signs of aging and sun damage."
+    />
+
+    <Card
+      img={celluma}
+      alt="Celluma Light Therapy"
+      title="Celluma Light Therapy"
+      text="Physician-grade LED light therapy for breakouts, scarring, aging skin, and pain management."
+    />
+
+    <Card
+      img={red}
+      alt="Far Infrared Light Therapy"
+      title="Far Infrared Light Therapy"
+      text="A deep-penetrating light therapy that increases circulation, relieves pain, and supports tissue regeneration."
+    />
+  </section><!-- <div class="grid grid-cols-1 md:grid-cols-2 max-h-xl max-w-7xl mx-auto mt-6">
+    <div class="flex flex-col justify-center items-center">
+      <h2 class="text-3xl md:text-5xl font-semibold py-2">Samaya Cullerton</h2>
+      <p class="text-lg md:text-2xl">LAc, MTCM Traditional Family Medicine</p>
+    </div>
+    <div
+      class="mx-auto rounded-full opacity-50 bg-brand-accent p-4 my-6 h-96 w-96"
+    >
+    </div>
+  </div> -->
+</Layout>
