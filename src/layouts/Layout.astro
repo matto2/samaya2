@@ -26,64 +26,59 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <style type="text/css">
-      .active_link
-      {
+      .active_link {
         border-bottom: 2px solid var(--brand-accent);
         color: var(--brand-accent);
         font-weight: 800;
       }
     </style>
     <script type="text/javascript">
-    // RJN
-    document.addEventListener('DOMContentLoaded', (() =>
-    {
-      const links = document.querySelectorAll("nav > div > a");
-      if(links !== null)
-      {
-        Array.from(links).forEach((link, idx) =>
-        {
-          // remove previous
-          link.classList.remove("active_link");
+      // RJN
+      document.addEventListener("DOMContentLoaded", () => {
+        const links = document.querySelectorAll("nav > div > a");
+        if (links !== null) {
+          Array.from(links).forEach((link, idx) => {
+            // remove previous
+            link.classList.remove("active_link");
 
-          // the link element
-          let link_href = link.getAttribute("href").toString().toLowerCase().substring(1);
-          
+            // the link element
+            let link_href = link
+              .getAttribute("href")
+              .toString()
+              .toLowerCase()
+              .substring(1);
 
-          let href = window.location.href;
-          if(href[href.length - 1] === "/")
-          {
-            href = href.substring(1);            
-          }       
-          const path_elements = href.split("/");
-          const path = path_elements[path_elements.length - 1];
-          const path2 = path_elements[path_elements.length - 2]
-
-          if((link_href === path) || (link_href === path2)) 
-          {
-            
-            console.log("PATH NAME: " + window.location.pathname);
-            console.log("PATH" + path);
-            if(window.location.pathname.trim() === "" || window.location.pathname.trim() === "/")
-            {
-                if(idx === 0)
-                {
-                  link.classList.add("active_link")
-                }
+            let href = window.location.href;
+            if (href[href.length - 1] === "/") {
+              href = href.substring(1);
             }
-            else
-            {
-              if(idx > 0)
-              {
-                link.classList.add("active_link")
+            const path_elements = href.split("/");
+            const path = path_elements[path_elements.length - 1];
+            const path2 = path_elements[path_elements.length - 2];
+
+            if (link_href === path || link_href === path2) {
+              console.log("PATH NAME: " + window.location.pathname);
+              console.log("PATH" + path);
+              if (
+                window.location.pathname.trim() === "" ||
+                window.location.pathname.trim() === "/"
+              ) {
+                if (idx === 0) {
+                  link.classList.add("active_link");
+                }
+              } else {
+                if (idx > 0) {
+                  link.classList.add("active_link");
+                }
               }
             }
-          }   
-        });
-      }
-    }));
-  </script>
+          });
+        }
+      });
+    </script>
   </head>
   <body class="bg-stone-50 relative">
+    <div class="hidden hover:bg-brand-primary"></div>
     <!-- Background Gradient (Full Width, 400px Height, Fades to Transparent at Bottom) -->
     <div class="absolute top-0 right-0 w-full h-screen">
       <div class="flex

@@ -1,0 +1,142 @@
+<script>
+  // Create main 'Schedule a Session' button
+  const mainButton = document.createElement("button");
+  mainButton.textContent = "Schedule a Session";
+  mainButton.id = "bookNowBtn";
+  mainButton.className =
+    "bg-brand-accent text-text-light font-semibold text-lg px-6 py-3 rounded-xl shadow-lg cursor-pointer transition focus:ring-2 focus:ring-[#cc926a] focus:outline-none w-full sm:w-auto";
+
+  // Insert the button into the document at a specified location
+  document.addEventListener("DOMContentLoaded", () => {
+    const targetContainer = document.querySelector("#bookNowContainer");
+    if (targetContainer) {
+      targetContainer.appendChild(mainButton);
+
+      // Add hover effect using JavaScript
+      mainButton.addEventListener("mouseenter", () => {
+        mainButton.classList.add("bg-brand-primary");
+        mainButton.classList.remove("bg-brand-accent");
+      });
+
+      mainButton.addEventListener("mouseleave", () => {
+        mainButton.classList.add("bg-brand-accent");
+        mainButton.classList.remove("bg-brand-primary");
+      });
+    }
+  });
+
+  // Create overlay structure
+  const overlay = document.createElement("div");
+  overlay.id = "policyOverlay";
+  overlay.className =
+    "fixed inset-0 bg-black/50 hidden flex justify-center items-center p-4";
+
+  const overlayContent = document.createElement("div");
+  overlayContent.className =
+    "bg-white rounded-xl p-6 max-w-md w-full space-y-4 shadow-lg relative";
+
+  // Close button
+  const closeButton = document.createElement("button");
+  closeButton.innerHTML = "&times;";
+  closeButton.className =
+    "absolute top-2 right-2 text-gray-600 text-2xl cursor-pointer hover:text-gray-900";
+  closeButton.addEventListener("click", () => {
+    overlay.classList.add("hidden");
+  });
+
+  // Policy agreement elements
+  const label = document.createElement("label");
+  label.className = "flex items-start space-x-3";
+  label.innerHTML = `
+            <input type="checkbox" id="policyCheckbox" class="mt-1">
+            <span class="text-gray-700">
+              I have read and agree to the 
+              <a href="/cancellation" class="text-brand-accent hover:underline">cancellation policy</a>
+            </span>
+          `;
+
+  // Overlay action button
+  const overlayButton = document.createElement("button");
+  overlayButton.textContent = "Schedule a Session";
+  overlayButton.id = "overlayBookNowBtn";
+  overlayButton.className =
+    "w-full bg-gray-400 text-white px-6 py-3 rounded-lg cursor-not-allowed";
+  overlayButton.disabled = true;
+
+  // Assemble overlay
+  overlayContent.appendChild(closeButton);
+  overlayContent.appendChild(label);
+  overlayContent.appendChild(overlayButton);
+  overlay.appendChild(overlayContent);
+
+  // Add elements to DOM
+  document.body.appendChild(overlay);
+
+  // Event handlers
+  mainButton.addEventListener("click", (e) => {
+    e.preventDefault(); // Prevent default action
+    overlay.classList.remove("hidden");
+  });
+
+  document.addEventListener("change", (e) => {
+    if (e.target.id === "policyCheckbox") {
+      const btn = document.getElementById("overlayBookNowBtn");
+      btn.disabled = !e.target.checked;
+      btn.classList.toggle("bg-brand-accent", e.target.checked);
+      btn.classList.toggle("bg-gray-400", !e.target.checked);
+      btn.classList.toggle("cursor-pointer", e.target.checked);
+      btn.classList.toggle("cursor-not-allowed", !e.target.checked);
+    }
+  });
+
+  overlayButton.addEventListener("click", (e) => {
+    e.preventDefault(); // Prevent unintended triggering
+    if (!overlayButton.disabled) {
+      window.location.href = "https://cal.com/mattosurf/1-hour-session";
+    }
+  });
+
+  // Close overlay on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !overlay.classList.contains("hidden")) {
+      overlay.classList.add("hidden");
+    }
+  });
+</script>
+
+<!-- Placeholder container where the button should appear in the page -->
+<div id="bookNowContainer"></div>
+
+<style>
+  /* Ensure brand colors are defined */
+  .bg-brand-accent {
+    background-color: #cc926a; /* Define your actual brand color */
+  }
+  .bg-brand-primary {
+    background-color: #9daf92; /* Define your actual primary hover color */
+  }
+  .text-text-light {
+    color: #ffffff;
+  }
+
+  /* Responsive styles for button positioning */
+  #bookNowContainer {
+    position: fixed;
+    bottom: 2rem;
+    width: calc(100% - 2rem);
+  }
+
+  @media (min-width: 640px) {
+    #bookNowContainer {
+      width: auto;
+      right: 2rem;
+      bottom: 2rem;
+      left: auto;
+      max-width: fit-content;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      z-index: 50;
+    }
+  }
+</style>
