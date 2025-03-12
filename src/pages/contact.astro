@@ -96,7 +96,7 @@ import Book2 from "../components/Book2.astro";
     </div>
 
     <!-- Opt-in for SMS Marketing -->
-    <!-- <div class="grid grid-cols-[auto_1fr] gap-3 items-start mt-4">
+    <div class="grid grid-cols-[auto_1fr] gap-3 items-start mt-4">
       <input
         type="checkbox"
         name="sms_opt_in"
@@ -106,10 +106,12 @@ import Book2 from "../components/Book2.astro";
       />
       <label for="sms_opt_in" class="text-text-dark">
         I consent to receive SMS messages for updates and promotional offers.
-        Message and data rates may apply. Reply STOP to unsubscribe. Terms &
-        Privacy Policy apply.
+        Message and data rates may apply. Reply STOP to unsubscribe.
+        <a href="/privacy/" class="underline text-amber-700">
+          Terms & Privacy Policy</a
+        > apply.
       </label>
-    </div> -->
+    </div>
 
     <!-- Submit Button -->
     <div class="text-center md:text-left mt-6">
@@ -124,11 +126,11 @@ import Book2 from "../components/Book2.astro";
 
   <Book2 />
 
-  <a href="/privacy/">
+  <!-- <a href="/privacy/">
     <p
       class="text-brand-accent hover:text-brand-primary text-center mt-4 underline"
     >
       Our Privacy Policy
     </p>
-  </a>
+  </a> -->
 </Layout>
