@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="SMS Consent">
+  <form
+    name="sms_opt_in"
+    netlify
+    class="px-6 py-2 md:px-12 rounded-3xl max-w-4xl mx-auto md:mt-12 mb-16"
+  >
+    <h3 class="text-2xl font-semibold text-brand-accent mb-2 pt-0">
+      SMS Consent
+    </h3>
+    <p class="mb-6">
+      By opting in, you agree to receive **recurring** SMS messages from Samaya
+      Cullerton Acupuncture, including appointment reminders, service updates,
+      and promotional offers.
+    </p>
+    <p class="mb-4 font-semibold">
+      **Consent is not required for purchase.** Msg & data rates may apply.
+      Reply STOP to opt out. Reply HELP for help.
+    </p>
+
+    <div class="grid grid-cols-[auto_1fr] gap-3 items-start mt-4">
+      <input
+        type="checkbox"
+        name="sms_consent"
+        id="sms_consent"
+        class="w-6 h-6 text-brand-accent border-gray-300 rounded focus:ring-[#cc926a] cursor-pointer"
+        required
+      />
+      <label for="sms_consent" class="text-text-dark">
+        I agree to receive SMS messages from Samaya Cullerton Acupuncture.
+      </label>
+    </div>
+
+    <!-- Hidden Timestamp Field -->
+    <input type="hidden" name="opt_in_timestamp" id="opt_in_timestamp" />
+
+    <!-- Submit Button (Initially Disabled) -->
+    <div class="text-center md:text-left mt-6">
+      <button
+        type="submit"
+        id="submit_btn"
+        class="bg-brand-accent text-text-light font-semibold text-lg px-6 py-3 rounded-xl shadow-lg cursor-not-allowed opacity-50 transition focus:ring-2 focus:ring-[#cc926a] focus:outline-none md:w-64 w-full mb-4 md:mb-0"
+        disabled
+      >
+        Confirm Opt-In
+      </button>
+    </div>
+  </form>
+
+  <script>
+    const smsConsentCheckbox = document.getElementById("sms_consent");
+    const submitButton = document.getElementById("submit_btn");
+    const timestampField = document.getElementById("opt_in_timestamp");
+
+    smsConsentCheckbox.addEventListener("change", function () {
+      if (this.checked) {
+        submitButton.disabled = false;
+        submitButton.classList.remove("cursor-not-allowed", "opacity-50");
+        timestampField.value = new Date().toISOString();
+      } else {
+        submitButton.disabled = true;
+        submitButton.classList.add("cursor-not-allowed", "opacity-50");
+        timestampField.value = "";
+      }
+    });
+  </script>
+</Layout>

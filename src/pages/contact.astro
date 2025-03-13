@@ -95,43 +95,15 @@ import Book2 from "../components/Book2.astro";
       </label>
     </div>
 
-    <!-- Opt-in for SMS Marketing (CTIA-Compliant) -->
-    <div class="grid grid-cols-[auto_1fr] gap-3 items-start mt-4">
-      <input
-        type="checkbox"
-        name="sms_opt_in"
-        id="sms_opt_in"
-        class="w-6 h-6 text-brand-accent border-gray-300 rounded focus:ring-[#cc926a] cursor-pointer"
-        required
-      />
-      <label for="sms_opt_in" class="text-text-dark">
-        I agree to receive recurring SMS messages from Samaya Cullerton
-        Acupuncture for appointment reminders, service updates, and promotional
-        offers.
-        <em>Consent is not required for purchase.</em> Msg & data rates may apply.
-        Reply STOP to opt out. Reply HELP for help.
-        <a href="/privacy/" class="underline text-amber-700">
-          Terms & Privacy Policy</a
-        > apply.
-      </label>
+    <!-- SMS Opt-in Link -->
+    <div class="mt-4">
+      <a
+        href="/sms-opt-in/"
+        class="text-brand-accent underline hover:text-brand-dark"
+      >
+        I'm OK with text messages →
+      </a>
     </div>
-
-    <!-- Timestamp Hidden Field for Compliance -->
-    <input type="hidden" name="opt_in_timestamp" id="opt_in_timestamp" />
-
-    <!-- Script to Capture Opt-In Time -->
-    <script>
-      document
-        .getElementById("sms_opt_in")
-        .addEventListener("change", function () {
-          if (this.checked) {
-            document.getElementById("opt_in_timestamp").value =
-              new Date().toISOString();
-          } else {
-            document.getElementById("opt_in_timestamp").value = "";
-          }
-        });
-    </script>
 
     <!-- Submit Button -->
     <div class="text-center md:text-left mt-6">
@@ -143,14 +115,4 @@ import Book2 from "../components/Book2.astro";
       </button>
     </div>
   </form>
-
-  <!-- <Book2 /> -->
-
-  <!-- <a href="/privacy/">
-    <p
-      class="text-brand-accent hover:text-brand-primary text-center mt-4 underline"
-    >
-      Our Privacy Policy
-    </p>
-  </a> -->
 </Layout>
