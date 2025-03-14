@@ -5,6 +5,7 @@ import Image from "astro/components/Image.astro";
 import davenport from "../assets/davenport.jpg";
 import BookButton from "../components/BookButton.astro";
 import Book2 from "../components/Book2.astro";
+import Samaya from "../assets/samaya.png";
 ---
 
 <Layout title="Samaya Cullerton">
@@ -31,10 +32,16 @@ import Book2 from "../components/Book2.astro";
     class="max-w-7xl mx-auto pb-6 md:mt-6 grid grid-col-1 lg:grid-cols-12 gap-6 md:text-left"
   >
     <div class="lg:col-span-4 grid">
-      <div
+      <Image
+        src={Samaya}
+        alt="Samaya Cullerton"
+        class="w-48 h-48 sm:w-72 sm:h-72 rounded-full justify-self-center"
+      />
+
+      <!-- <div
         class="w-48 h-48 sm:w-72 sm:h-72 bg-brand-accent opacity-50 rounded-full justify-self-center"
       >
-      </div>
+      </div> -->
     </div>
 
     <div class="lg:col-span-8">
