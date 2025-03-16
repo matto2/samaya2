@@ -1,0 +1,82 @@
+---
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+
+import "@fontsource/kaushan-script";
+import "@fontsource/poppins";
+import "@fontsource/poppins/300.css";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource-variable/nunito";
+import "@fontsource-variable/mulish";
+
+const { title } = Astro.props;
+const currentPage = Astro.url.pathname;
+import { Image } from "astro:assets";
+import bg from "../assets/rainbow-bg.jpg";
+---
+
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <style type="text/css">
+      .active_link {
+        border-bottom: 2px solid var(--brand-accent);
+        color: var(--brand-accent);
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <!-- <header class="container mx-auto px-4 max-w-7xl block mt-2 pb-4">
+    <Nav currentPage={currentPage} />
+  </header>
+  <Image src={bg} alt="Hero background" class="w-full max-w-full h-auto" /> -->
+  <body
+    class="h-full min-h-screen flex flex-col bg-gray-100 text-gray-900 font-sans"
+  >
+    <!-- Header (Fixed height to prevent stretching) -->
+    <header class="container mx-auto px-4 max-w-7xl block">
+      <Nav currentPage={currentPage} />
+    </header>
+
+    <!-- Hero Section Wrapper -->
+    <div class="relative w-full">
+      <!-- Hero Image -->
+      <Image
+        src={bg}
+        alt="Hero background"
+        class="w-full max-w-full h-auto max-h-96"
+      />
+
+      <!-- Text Overlay -->
+      <div
+        class="absolute inset-0 flex flex-col items-center justify-center text-white text-center"
+      >
+        <h1
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold w-3/4 sm:w-1/2 md:w-3/4 mb-2 md:mb-4"
+        >
+          Samaya Cullerton Acupuncture & Traditional Chinese Medicine
+        </h1>
+        <!-- <h3 class="md:text-2xl font-light">
+          Acupuncture & Traditional Chinese Medicine
+        </h3> -->
+      </div>
+    </div>
+
+    <!-- Main Content (expands to push footer down) -->
+    <main class="container mx-auto px-4 2xl:px-0 max-w-7xl flex-grow">
+      <slot />
+    </main>
+
+    <!-- Footer (Always at the bottom, does not stretch) -->
+    <footer class="text-center mt-auto w-full h-auto flex-none">
+      <Footer />
+    </footer>
+  </body>
+</html>

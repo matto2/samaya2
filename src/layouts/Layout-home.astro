@@ -1,0 +1,140 @@
+---
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import { Image } from "astro:assets";
+import bg from "../assets/samaya-bg2.jpg";
+
+import "@fontsource/kaushan-script";
+import "@fontsource/poppins";
+import "@fontsource/poppins/300.css";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+// Supports weights 200-900
+import "@fontsource-variable/nunito";
+import "@fontsource-variable/mulish";
+
+// Get the current URL path
+const { title } = Astro.props;
+const currentPage = Astro.url.pathname; // This gives the current route (e.g., "/about")
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <style type="text/css">
+      .active_link {
+        border-bottom: 2px solid var(--brand-accent);
+        color: var(--brand-accent);
+        font-weight: 800;
+      }
+      .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .hero img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+      .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body class="bg-stone-50 relative">
+    <div class="hidden hover:bg-brand-primary"></div>
+    <!-- Hero Section -->
+    <div class="hero">
+      <Image
+        src={bg}
+        alt="Hero background"
+        layout="fill"
+        class="absolute inset-0 object-cover w-full h-full"
+      />
+      <!-- <div class="max-w-7xl mx-auto text-lg md:mt-4 mt-2 md:mb-3 text-center">
+        <div class="text-text-dark sm:py-4 md:max-w-3x">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold py-2 mt-12">
+            Samaya Cullerton
+          </h2>
+          <p class="sm:text-lg md:text-xl mb-3 font-semibold">
+            LAc, MTCM Traditional Family Medicine
+          </p>
+        </div>
+      </div> -->
+
+      <div class="absolute top-0 right-0 w-full h-screen">
+        <div class="flex flex-col min-h-screen relative">
+          <!-- Main Content -->
+          <main class="flex-grow p-4 max-w-7xl mx-auto w-full relative">
+            <Nav currentPage={currentPage} />
+            <h2></h2>
+            <slot />
+          </main>
+          <!-- Footer remains inside the flex container -->
+          <Footer />
+        </div>
+        <script src="/src/scripts/fslightbox.js"></script>
+        <!-- Cal element-click embed code -->
+        <script type="text/javascript">
+          (function (C, A, L) {
+            let p = function (a, ar) {
+              a.q.push(ar);
+            };
+            let d = C.document;
+            C.Cal =
+              C.Cal ||
+              function () {
+                let cal = C.Cal;
+                let ar = arguments;
+                if (!cal.loaded) {
+                  cal.ns = {};
+                  cal.q = cal.q || [];
+                  d.head.appendChild(d.createElement("script")).src = A;
+                  cal.loaded = true;
+                }
+                if (ar[0] === L) {
+                  const api = function () {
+                    p(api, arguments);
+                  };
+                  const namespace = ar[1];
+                  api.q = api.q || [];
+                  if (typeof namespace === "string") {
+                    cal.ns[namespace] = cal.ns[namespace] || api;
+                    p(cal.ns[namespace], ar);
+                    p(cal, ["initNamespace", namespace]);
+                  } else p(cal, ar);
+                  return;
+                }
+                p(cal, ar);
+              };
+          })(window, "https://app.cal.com/embed/embed.js", "init");
+          Cal("init", "1-hour-session", { origin: "https://cal.com" });
+          Cal.ns["1-hour-session"]("ui", {
+            theme: "light",
+            cssVarsPerTheme: { light: { "cal-brand": "#86198F" } },
+            hideEventTypeDetails: false,
+            layout: "month_view",
+          });
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

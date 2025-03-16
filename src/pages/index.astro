@@ -1,41 +1,39 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Button from "../components/Button.astro";
-import Image from "astro/components/Image.astro";
-import davenport from "../assets/davenport.jpg";
-import BookButton from "../components/BookButton.astro";
+import { Image } from "astro:assets";
+import bg from "../assets/samaya-bg2.jpg";
 import Book2 from "../components/Book2.astro";
-import Samaya from "../assets/samaya.png";
+import Samaya from "../assets/samaya.jpg";
+import Testimonials from "../components/Testimonials.astro";
 ---
 
-<Layout title="Samaya Cullerton">
+<Layout title="Home">
   <div class="relative w-full">
-    <Image
-      src={davenport}
-      alt="up the coast from Santa Cruz"
-      class="rounded-3xl w-full mb-4 md:my-8"
-    />
-  </div>
+    <!-- Hero Image -->
+    <Image src={bg} alt="Hero background" class="w-full h-auto max-h-96" />
 
-  <div class="max-w-7xl mx-auto text-lg md:mt-4 mt-2 md:mb-3 text-center">
-    <div class="text-text-dark sm:py-4 md:max-w-3x">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold py-1">
-        Samaya Cullerton
-      </h2>
-      <p class="sm:text-lg md:text-xl mb-3 font-semibold">
-        LAc, MTCM Traditional Family Medicine
-      </p>
+    <!-- Text Overlay -->
+    <div
+      class="absolute inset-0 flex flex-col items-center justify-center text-white text-center"
+    >
+      <h1
+        class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold w-3/4 sm:w-1/2 md:w-3/4 mb-2 md:mb-4"
+      >
+        Samaya Cullerton Acupuncture & Traditional Chinese Medicine
+      </h1>
+      <!-- <h3 class="md:text-2xl font-light">
+        Acupuncture & Traditional Chinese Medicine
+      </h3> -->
     </div>
   </div>
-
   <div
-    class="max-w-7xl mx-auto pb-6 md:mt-6 grid grid-col-1 lg:grid-cols-12 gap-6 md:text-left"
+    class="max-w-7xl mx-auto pb-6 md:mt-6 grid grid-col-1 xl:grid-cols-12 gap-6 md:text-left px-6"
   >
-    <div class="lg:col-span-4 grid">
+    <div class="xl:col-span-4 grid mt-6">
       <Image
         src={Samaya}
         alt="Samaya Cullerton"
-        class="w-48 h-48 sm:w-72 sm:h-72 rounded-full justify-self-center"
+        class="w-64 h-64 lg:w-96 lg:h-96 rounded-full justify-self-center"
       />
 
       <!-- <div
@@ -44,14 +42,15 @@ import Samaya from "../assets/samaya.png";
       </div> -->
     </div>
 
-    <div class="lg:col-span-8">
+    <div class="xl:col-span-8">
       <p class="mb-4 text-lg md:text-xl">
-        Welcome to my practice. As a licensed acupuncturist and herbalist, I am
-        dedicated to providing compassionate, patient-centered care through
-        Traditional Chinese Medicine. Whether you are seeking acupuncture,
-        herbal treatments, or a holistic approach to wellness, my goal is to
-        support your health with personalized, evidence-based care. In addition
-        to my private practice, I am also part of <a
+        Welcome to my practice. As a California board-licensed acupuncturist and
+        herbalist (LAc, MTCM), I am dedicated to providing compassionate,
+        patient-centered care through Traditional Chinese Medicine. Whether you
+        are seeking acupuncture, herbal treatments, or a holistic approach to
+        wellness, my goal is to support your health with personalized,
+        evidence-based care. In addition to my private practice, I am also part
+        of <a
           href="https://www.google.com/"
           class="text-orange-700 hover:text-orange-900"
           >Wellness Medical Center</a
@@ -104,78 +103,5 @@ import Samaya from "../assets/samaya.png";
     </a>
   </div>
 
-  <div class="max-w-7xl mx-auto text-lg md:mt-4 mt-2 md:mb-3 text-center">
-    <div class="mx-auto text-text-dark sm:py-4 md:max-w-7xl">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold mt-8 mb-6">
-        Trusted by Patients
-      </h2>
-      <!-- Centered Grid -->
-      <!-- Masonry Grid Layout -->
-      <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 mx-auto">
-        <div class="break-inside-avoid rounded-xl bg-[#efddd0] p-8 w-full">
-          <p class="text-left mb-6">
-            Samaya is a wonderful practitioner. I have been receiving treatments
-            from her for years, and I always am so thankful to have her in my
-            life! Her treatments provide effective relief for my aches and
-            pains, and support me through emotional ups and downs. She is a
-            gifted herbalist and always knows just the right thing to help me.
-            She is consistently thorough in both understanding what I am hoping
-            for with the treatment and in answering any questions I may have.
-            Her style of acupuncture is very gentle and restorative—I am so
-            appreciative of her care and recommend her to everyone!
-          </p>
-          <p class="text-right font-bold mt-2">Molly D.</p>
-        </div>
-
-        <div class="break-inside-avoid rounded-xl bg-[#e4e9e1] p-8 w-full">
-          <p class="text-left mb-6">
-            I cannot sing Samaya's praises ENOUGH. She is a gifted healer,
-            herbalist, acupuncturist, and all-around amazing human. She
-            continues to successfully usher me through perimenopause with
-            wisdom, insight, ease, grace, and loving kindness. I recommend her
-            so highly. 10 stars for Samaya!
-          </p>
-          <p class="text-right font-bold mt-2">T.L.</p>
-        </div>
-
-        <div class="break-inside-avoid rounded-xl bg-[#efddd0] p-8 w-full">
-          <p class="text-left mb-6">
-            Samaya is truly phenomenal at what she does. She has been my
-            acupuncturist throughout the years, before I had kids, on my
-            fertility journey, through two pregnancies, two healing journeys,
-            and while raising my family. She is gentle and my kids love her. She
-            has helped me troubleshoot so many challenging matters regarding our
-            health, and she just always makes me feel better. She gives us
-            magical teas and drops to drink and makes me laugh. She’s a gift!
-          </p>
-          <p class="text-right font-bold mt-2">E.S.</p>
-        </div>
-
-        <div class="break-inside-avoid rounded-xl bg-[#e4e9e1] p-8 w-full">
-          <p class="text-left mb-6">
-            I have been seeing Samaya for years, and I truly cannot recommend
-            her enough! She has been an absolute game changer in helping me
-            manage a variety of physical and mental health concerns, including
-            perimenopause symptoms, hormone imbalance, and anxiety. Her
-            expertise, care, and nurturing approach make every session an
-            incredibly healing experience.
-          </p>
-          <p class="text-left mb-6">
-            Samaya takes the time to truly listen and understand what’s going
-            on, and I never feel rushed during my appointments. Her bedside
-            manner is unmatched—she is compassionate, knowledgeable, and deeply
-            intuitive in her practice. Every time I leave a session, I feel
-            balanced, rejuvenated, and grateful for her care.
-          </p>
-          <p class="text-left mb-6">
-            I’ve referred many people to Samaya, and every single one has had an
-            equally positive experience. If you are looking for an acupuncturist
-            who is not only excellent at what she does but also genuinely cares
-            about your well-being, look no further. She is a gem!
-          </p>
-          <p class="text-right font-bold mt-2">S.G.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <Testimonials />
 </Layout>

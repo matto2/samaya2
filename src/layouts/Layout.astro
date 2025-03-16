@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
+import { ClientRouter } from "astro:transitions";
 
 import "@fontsource/kaushan-script";
 import "@fontsource/poppins";
@@ -77,6 +78,7 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
       });
     </script>
   </head>
+  <ClientRouter />
   <body class="bg-stone-50 relative">
     <div class="hidden hover:bg-brand-primary"></div>
     <!-- Background Gradient (Full Width, 400px Height, Fades to Transparent at Bottom) -->
@@ -86,7 +88,7 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
       min-h-screen
       relative">
         <!-- Main Content -->
-        <main class="flex-grow p-4 max-w-7xl mx-auto w-full relative">
+        <main class="flex-grow max-w-7xl mx-auto w-full relative">
           <Nav currentPage={currentPage} />
           <!-- Pass the current page -->
           <h2></h2>
