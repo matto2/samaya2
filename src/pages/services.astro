@@ -6,14 +6,15 @@ import photo1 from "../assets/lake.jpg";
 import guasha from "../assets/guasha.jpg";
 import acu from "../assets/acupuncture.webp";
 import cupping from "../assets/cupping.webp";
-import herbs from "../assets/herbs.jpg";
-import nutrition from "../assets/nutrition.webp";
+import herbs from "../assets/herbs.webp";
+import nutrition from "../assets/nutrition.jpg";
 import tuina from "../assets/tuina.jpg";
 import shonishin from "../assets/shonishin.webp";
 import facial from "../assets/facial.webp";
 import celluma from "../assets/celluma.jpg";
 import red from "../assets/red.webp";
 import ButtonFixed from "../components/ButtonFixed.astro";
+import Testimonials from "../components/Testimonials.astro";
 ---
 
 <Layout title="Services">
@@ -99,15 +100,7 @@ import ButtonFixed from "../components/ButtonFixed.astro";
       title="Far Infrared Light Therapy"
       text="A deep-penetrating light therapy that increases circulation, relieves pain, and supports tissue regeneration."
     />
-  </section><!-- <div class="grid grid-cols-1 md:grid-cols-2 max-h-xl max-w-7xl mx-auto mt-6">
-    <div class="flex flex-col justify-center items-center">
-      <h2 class="text-3xl md:text-5xl font-semibold py-2">Samaya Cullerton</h2>
-      <p class="text-lg md:text-2xl">LAc, MTCM Traditional Family Medicine</p>
-    </div>
-    <div
-      class="mx-auto rounded-full opacity-50 bg-brand-accent p-4 my-6 h-96 w-96"
-    >
-    </div>
-  </div> -->
+  </section>
+  <Testimonials />
   <ButtonFixed />
 </Layout>

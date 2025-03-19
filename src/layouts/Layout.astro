@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
-import { ClientRouter } from "astro:transitions";
+// import { ClientRouter } from "astro:transitions";
 
 import "@fontsource/kaushan-script";
 import "@fontsource/poppins";
@@ -78,7 +78,7 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
       });
     </script>
   </head>
-  <ClientRouter />
+  <!-- <ClientRouter /> -->
   <body class="bg-stone-50 relative">
     <div class="hidden hover:bg-brand-primary"></div>
     <!-- Background Gradient (Full Width, 400px Height, Fades to Transparent at Bottom) -->

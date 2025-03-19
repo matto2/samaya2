@@ -4,7 +4,6 @@ import { Image } from "astro:assets";
 import bg from "../assets/samaya-bg2.jpg";
 import Book2 from "../components/Book2.astro";
 import Samaya from "../assets/samaya.jpg";
-import Testimonials from "../components/Testimonials.astro";
 ---
 
 <Layout title="Home">
@@ -17,7 +16,7 @@ import Testimonials from "../components/Testimonials.astro";
       class="absolute inset-0 flex flex-col items-center justify-center text-white text-center"
     >
       <h1
-        class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold w-3/4 sm:w-1/2 md:w-3/4 mb-2 md:mb-4"
+        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold w-3/4 sm:w-1/2 md:w-3/4 mb-2 md:mb-4"
       >
         Samaya Cullerton Acupuncture & Traditional Chinese Medicine
       </h1>
@@ -45,39 +44,29 @@ import Testimonials from "../components/Testimonials.astro";
     <div class="xl:col-span-8">
       <p class="mb-4 text-lg md:text-xl">
         Welcome to my practice. As a California board-licensed acupuncturist and
-        herbalist (LAc, MTCM), I am dedicated to providing compassionate,
-        patient-centered care through Traditional Chinese Medicine. Whether you
-        are seeking acupuncture, herbal treatments, or a holistic approach to
-        wellness, my goal is to support your health with personalized,
-        evidence-based care. In addition to my private practice, I am also part
-        of <a
-          href="https://www.google.com/"
-          class="text-orange-700 hover:text-orange-900"
-          >Wellness Medical Center</a
-        > in Santa Cruz, CA, a respected, women-owned clinic serving the local community
-        for over 40 years.
+        herbalist, I am dedicated to providing compassionate, patient-centered
+        care through traditional Chinese medicine. Whether you are seeking
+        acupuncture, herbal treatments, or a holistic approach to nutrition, my
+        goal is to support your health with personalized, evidence-based care. I
+        have a Master's Degree in Traditional Chinese Medicine and over a decade
+        of experience, specializing in women's health, prenatal, postpartum and
+        pediatric traditional medicine.
       </p>
       <p class="mb-4 text-lg md:text-xl">
-        I am a California board-licensed acupuncturist and herbalist with a
-        Master's Degree in Traditional Chinese Medicine. With over a decade of
-        experience, I have specialized in women's health, prenatal, postpartum,
-        and pediatric traditional medicine.
-      </p>
-      <p class="mb-4 text-lg md:text-xl">
-        As a scholar of traditional medical practices for more than twenty
-        years, I teach herbal medicine, dietetics, and clinical acupuncture at
-        Five Branches University in Santa Cruz. Notably, I also co-own the
-        <a
+        In addition to my private practice, I am also part of <a
           href="https://www.google.com/"
           class="text-orange-700 hover:text-orange-900"
         >
           Wellness Medical Center</a
-        >, reinforcing my dedication to the Santa Cruz community.
+        > in Santa Cruz, CA, a cherished, women-owned clinic serving the local community
+        for over 40 years. I am a professor of herbal medicine, dietetics, and clinical
+        acupuncture for the doctoral program at Five Branches University in Santa
+        Cruz.
       </p>
+
       <p class="mb-4 text-lg md:text-xl">
-        I provide compassionate, patient-centered care and am part of the
-        Central California Alliance for Health Insurance provider network. I am
-        currently accepting new patients.
+        I am in the Central California Alliance for Health Insurance provider
+        network and I am currently accepting new patients.
       </p>
       <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
         <Book2 />
@@ -87,8 +76,6 @@ import Testimonials from "../components/Testimonials.astro";
           class="w-16 h-16 justify-self-center md:justify-self-end"
         />
       </div>
-
-      <Book2 />
     </div>
   </div>
   <div class="flex justify-center mt-4">
@@ -102,6 +89,4 @@ import Testimonials from "../components/Testimonials.astro";
       />
     </a>
   </div>
-
-  <Testimonials />
 </Layout>
