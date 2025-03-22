@@ -25,9 +25,9 @@ color: var(--text-dark);
     z-index: 100;
   }
 
-  #bookNowContainer.hidden {
+  /* #bookNowContainer.hidden {
     display: none !important;
-  } 
+  }  */
 
   :root {
     --brand-primary: #9daf92;
