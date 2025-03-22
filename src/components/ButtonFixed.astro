@@ -31,6 +31,8 @@
   overlay.className =
     "fixed inset-0 bg-black/50 hidden flex justify-center items-center p-4";
 
+  overlay.style.zIndex = "100";
+
   const overlayContent = document.createElement("div");
   overlayContent.className =
     "bg-white rounded-xl p-6 max-w-md w-full space-y-4 shadow-lg relative";
@@ -76,6 +78,7 @@
   mainButton.addEventListener("click", (e) => {
     e.preventDefault(); // Prevent default action
     overlay.classList.remove("hidden");
+    document.getElementById("bookNowContainer").classList.add("hidden"); // Hide fixed button
   });
 
   document.addEventListener("change", (e) => {

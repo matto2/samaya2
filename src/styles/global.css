@@ -21,7 +21,13 @@ font-weight: 300;
 color: var(--text-dark);  
 }
 
+#policyOverlay {
+    z-index: 100;
+  }
 
+  #bookNowContainer.hidden {
+    display: none !important;
+  } 
 
   :root {
     --brand-primary: #9daf92;
