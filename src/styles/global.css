@@ -93,3 +93,8 @@ color: var(--text-dark);
     color: var(--brand-accent);
     font-weight: 700;
 }
+
+/* a {
+    text-decoration: none;
+    color: #bf7644;
+} */
