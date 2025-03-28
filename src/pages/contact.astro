@@ -128,7 +128,7 @@ import Layout from "../layouts/Layout.astro";
     <p class="mb-0 justify-center items-center gap-1">
       200 7th Ave #135, Santa Cruz, CA 95062
     </p>
-    <p class="flex justify-center items-center gap-1">
+    <p class="flex justify-center items-center gap-1 text-sm mt-1">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -144,13 +144,23 @@ import Layout from "../layouts/Layout.astro";
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
         <circle cx="12" cy="10" r="3"></circle>
       </svg>
+      Open in:
       <a
         href="https://www.google.com/maps?q=200+7th+Ave+%23135,+Santa+Cruz,+CA+95062"
         target="_blank"
         rel="noopener noreferrer"
         class="text-[#bf7644] hover:text-orange-800 text-sm"
       >
-        Open in Google Maps
+        Google Maps
+      </a>
+      |
+      <a
+        href="https://maps.apple.com/?address=200+7th+Ave,+Santa+Cruz,+CA+95062"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-[#bf7644] hover:text-orange-800 text-sm"
+      >
+        Apple Maps
       </a>
     </p>
   </div>
