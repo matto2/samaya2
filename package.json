@@ -19,6 +19,7 @@
     "@vonage/server-sdk": "^3.20.0",
     "astro": "^5.5.5",
     "dotenv": "^16.4.7",
+    "lucide-astro": "^0.484.0",
     "tailwindcss": "^4.0.8",
     "twilio": "^5.5.1"
   },

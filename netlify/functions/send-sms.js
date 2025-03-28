@@ -63,6 +63,9 @@ exports.handler = async (event) => {
         message = `📅 Booking update:\n${title}\n${description}\n📆 ${localTime}`;
     }
 
+    // Append no-reply and contact info
+    message += `\n\nThis is a no-reply message.\nCall or text Samaya: (831) 588-9581`;
+
     await client.messages.create({
       body: message,
       from: process.env.TWILIO_PHONE,
