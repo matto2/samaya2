@@ -11,19 +11,62 @@ exports.handler = async (event) => {
     }
 
     const body = JSON.parse(event.body);
+    const { triggerEvent, payload } = body;
 
-    console.log("Received Cal.com webhook:", body);
+    console.log("Received Cal.com webhook:", triggerEvent, payload);
 
-    const payload = body.payload;
-    const name = payload?.attendees?.[0]?.name || "a new client";
-    const time = payload?.startTime || "a scheduled time";
+    const name = payload?.attendees?.[0]?.name || "a client";
+    const rawStart = payload?.startTime;
+    const title = payload?.title || "Appointment";
+    const description = payload?.description || "";
 
-    const message = `New booking from ${name} at ${time}.`;
+    const localTime = rawStart
+      ? new Date(rawStart).toLocaleString("en-US", {
+          timeZone: "America/Los_Angeles",
+          weekday: "short",
+          month: "short",
+          day: "numeric",
+          hour: "numeric",
+          minute: "2-digit",
+          hour12: true,
+        })
+      : "unknown time";
+
+    let message = "";
+
+    switch (triggerEvent) {
+      case "BOOKING_CREATED":
+        message = `🗓️ New booking:\n${title}\n${description}\n📅 ${localTime}`;
+        break;
+
+      case "BOOKING_RESCHEDULED":
+        const oldTime = payload?.rescheduleStartTime
+          ? new Date(payload.rescheduleStartTime).toLocaleString("en-US", {
+              timeZone: "America/Los_Angeles",
+              weekday: "short",
+              month: "short",
+              day: "numeric",
+              hour: "numeric",
+              minute: "2-digit",
+              hour12: true,
+            })
+          : "unknown time";
+
+        message = `🔁 Rescheduled:\n${title}\n${description}\n⏱️ From: ${oldTime}\n➡️ To: ${localTime}`;
+        break;
+
+      case "BOOKING_CANCELLED":
+        message = `❌ Cancelled booking:\n${title}\n${description}\n🗓️ Was scheduled for ${localTime}`;
+        break;
+
+      default:
+        message = `📅 Booking update:\n${title}\n${description}\n📆 ${localTime}`;
+    }
 
     await client.messages.create({
       body: message,
-      from: process.env.TWILIO_PHONE,   // ✅ Must be a full E.164 phone number like +18315551234
-      to: process.env.CLIENT_PHONE
+      from: process.env.TWILIO_PHONE,
+      to: process.env.CLIENT_PHONE,
     });
 
     return {
