@@ -4,6 +4,32 @@ import Book2 from "../components/Book2.astro";
 ---
 
 <Layout title="Contact Us">
+  <button id="send-sms-btn">Send Test SMS</button>
+  <p id="sms-status"></p>
+  <script>
+    const button = document.getElementById("send-sms-btn");
+    const statusText = document.getElementById("sms-status");
+
+    button.addEventListener("click", async () => {
+      statusText.textContent = "Sending...";
+
+      try {
+        const res = await fetch("/.netlify/functions/send-sms");
+        const data = await res.json();
+
+        if (data.success) {
+          statusText.textContent = "✅ Text sent!";
+        } else {
+          statusText.textContent = "❌ Error sending text.";
+          console.error(data.error);
+        }
+      } catch (err) {
+        statusText.textContent = "❌ Something went wrong.";
+        console.error(err);
+      }
+    });
+  </script>
+
   <form
     name="contact"
     netlify
