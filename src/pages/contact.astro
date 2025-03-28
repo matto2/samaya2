@@ -1,34 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Book2 from "../components/Book2.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout title="Contact Us">
-  <button id="send-sms-btn">Send Test SMS</button>
-  <p id="sms-status"></p>
-  <script>
-    const button = document.getElementById("send-sms-btn");
-    const statusText = document.getElementById("sms-status");
-
-    button.addEventListener("click", async () => {
-      statusText.textContent = "Sending...";
-
-      try {
-        const res = await fetch("/.netlify/functions/send-sms");
-        const data = await res.json();
-
-        if (data.success) {
-          statusText.textContent = "✅ Text sent!";
-        } else {
-          statusText.textContent = "❌ Error sending text.";
-          console.error(data.error);
-        }
-      } catch (err) {
-        statusText.textContent = "❌ Something went wrong.";
-        console.error(err);
-      }
-    });
-  </script>
+  <Icon name="map-pin" />
 
   <form
     name="contact"
@@ -147,4 +123,23 @@ import Book2 from "../components/Book2.astro";
       </button>
     </div>
   </form>
+  <div class="text-text-dark py-4 md:max-w-3x text-center">
+    <p class="mb-1 font-bold text-2xl text-brand-accent">
+      Wellness Medical Center
+    </p>
+    <p class="mb-1 justify-center items-center gap-1">
+      200 7th Ave #135, Santa Cruz, CA 95062
+    </p>
+    <p class="flex justify-center items-center gap-1">
+      <Icon name="map-pin" class="w-4 h-4 text-brand-accent" />
+      <a
+        href="https://www.google.com/maps?q=200+7th+Ave+%23135,+Santa+Cruz,+CA+95062"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-[#bf7644] hover:text-orange-800 text-sm"
+      >
+        Open in Google Maps
+      </a>
+    </p>
+  </div>
 </Layout>

@@ -36,7 +36,7 @@ exports.handler = async (event) => {
 
     switch (triggerEvent) {
       case "BOOKING_CREATED":
-        message = `🗓️ New booking:\n${title}\n${description}\n📅 ${localTime}`;
+        message = `✅ New booking:\n${title}\n${description}\n📅 ${localTime}`;
         break;
 
       case "BOOKING_RESCHEDULED":
