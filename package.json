@@ -22,8 +22,5 @@
     "dotenv": "^16.4.7",
     "tailwindcss": "^4.0.8",
     "twilio": "^5.5.1"
-  },
-  "devDependencies": {
-    "netlify-cli": "^19.1.4"
   }
 }
