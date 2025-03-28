@@ -6,25 +6,24 @@ const client = twilio(accountSid, authToken);
 
 exports.handler = async (event) => {
   try {
-    const payload = JSON.parse(event.body);
+    if (!event.body) {
+      throw new Error("Missing request body");
+    }
 
-    // For debugging (optional)
-    console.log("Received Cal.com webhook:", payload);
+    const body = JSON.parse(event.body);
 
-    // Your acupuncturist's phone number (from Netlify env var)
-    const acupuncturistPhone = process.env.CLIENT_PHONE;
+    console.log("Received Cal.com webhook:", body);
 
-    // Compose a message from the booking info
-    const name = payload?.attendees?.[0]?.name || 'a new client';
-    const time = payload?.startTime || 'an upcoming appointment';
+    const payload = body.payload;
+    const name = payload?.attendees?.[0]?.name || "a new client";
+    const time = payload?.startTime || "a scheduled time";
 
     const message = `New booking from ${name} at ${time}.`;
 
-    // Send SMS via Twilio
     await client.messages.create({
       body: message,
-      from: process.env.TWILIO_PHONE, // Your Twilio number
-      to: acupuncturistPhone
+      from: process.env.TWILIO_PHONE,   // ✅ Must be a full E.164 phone number like +18315551234
+      to: process.env.CLIENT_PHONE
     });
 
     return {
@@ -32,10 +31,10 @@ exports.handler = async (event) => {
       body: JSON.stringify({ success: true }),
     };
   } catch (err) {
-    console.error("Error sending SMS:", err);
+    console.error("Error sending SMS:", err.message, err);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Failed to send SMS" }),
+      body: JSON.stringify({ error: "Failed to send SMS", details: err.message }),
     };
   }
 };
