@@ -9,22 +9,25 @@ import Samaya from "../assets/samaya.jpg";
 <Layout title="Home">
   <div class="relative w-full">
     <!-- Hero Image -->
-    <Image src={bg} alt="Hero background" class="w-full h-auto max-h-96" />
+    <Image
+      src={bg}
+      alt="Hero background"
+      class="w-full h-auto max-h-96 xl:rounded-4xl"
+    />
 
     <!-- Text Overlay -->
     <div
       class="absolute inset-0 flex flex-col items-center justify-center text-white text-center"
     >
       <h1
-        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold w-3/4 sm:w-1/2 md:w-3/4 mb-2 md:mb-4"
+        id="hero-text"
+        class="opacity-0 translate-y-5 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out motion-safe:delay-200 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold w-3/4 sm:w-1/2 md:w-3/4 mb-2 md:mb-4"
       >
         Samaya Cullerton Acupuncture & Traditional Chinese Medicine
       </h1>
-      <!-- <h3 class="md:text-2xl font-light">
-        Acupuncture & Traditional Chinese Medicine
-      </h3> -->
     </div>
   </div>
+
   <div
     class="max-w-7xl mx-auto pb-6 md:mt-6 grid grid-col-1 xl:grid-cols-12 gap-6 md:text-left px-6"
   >
@@ -33,12 +36,9 @@ import Samaya from "../assets/samaya.jpg";
         src={Samaya}
         alt="Samaya Cullerton"
         class="w-64 h-64 lg:w-96 lg:h-96 rounded-full justify-self-center"
+        width={384}
+        height={384}
       />
-
-      <!-- <div
-        class="w-48 h-48 sm:w-72 sm:h-72 bg-brand-accent opacity-50 rounded-full justify-self-center"
-      >
-      </div> -->
     </div>
 
     <div class="xl:col-span-8">
@@ -68,6 +68,7 @@ import Samaya from "../assets/samaya.jpg";
         I am in the Central California Alliance for Health Insurance provider
         network and I am currently accepting new patients.
       </p>
+
       <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
         <Book2 />
         <img
@@ -78,6 +79,7 @@ import Samaya from "../assets/samaya.jpg";
       </div>
     </div>
   </div>
+
   <div class="flex justify-center mt-4">
     <a
       href="https://us.fullscript.com/welcome/wellness-medical-center?utm_medium=webreferral&utm_source=other&utm_campaign=abmwebbuttons_light_500x500.svg&signup_source=website_buttons"
@@ -89,4 +91,12 @@ import Samaya from "../assets/samaya.jpg";
       />
     </a>
   </div>
+
+  <!-- Trigger animation on load -->
+  <script is:inline>
+    window.addEventListener("DOMContentLoaded", () => {
+      const heroText = document.getElementById("hero-text");
+      heroText?.classList.remove("opacity-0", "translate-y-5");
+    });
+  </script>
 </Layout>

@@ -25,7 +25,28 @@ const currentPage = Astro.url.pathname; // This gives the current route (e.g., "
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
     <title>{title}</title>
+    <meta
+      name="description"
+      content="Samaya Cullerton is a licensed acupuncturist and herbalist in Santa Cruz, CA, offering holistic treatments including acupuncture, herbal medicine, cupping, and more."
+    />
+
+    <!-- Open Graph (for social preview + SEO) -->
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content="Offering acupuncture, herbalism, cupping, and traditional Chinese medicine in Santa Cruz, CA. Specializing in women's health, prenatal, and pediatric care."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://samayacullerton.com{Astro.url.pathname}"
+    />
+    <meta
+      property="og:image"
+      content="https://samayacullerton.com/images/samaya-og.jpg"
+    />
     <style type="text/css">
       .active_link {
         border-bottom: 2px solid var(--brand-accent);

@@ -27,80 +27,141 @@ import Testimonials from "../components/Testimonials.astro";
       and modern therapies to support your health and well-being.
     </p>
   </div>
+
   <section
     class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-16 gap-y-8 p-6"
   >
-    <!-- Block 1 -->
-    <Card
-      img={acu}
-      alt="Acupuncture"
-      title="Acupuncture"
-      text="A traditional healing technique using fine needles to alleviate pain and address various health concerns."
-    />
+    <div
+      class="card-animate opacity-0 translate-y-5 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out"
+    >
+      <Card
+        img={acu}
+        alt="Acupuncture"
+        title="Acupuncture"
+        text="A traditional healing technique using fine needles to alleviate pain and address various health concerns."
+      />
+    </div>
 
-    <Card
-      img={cupping}
-      alt="Cupping"
-      title="Cupping"
-      text="A manual therapy that increases circulation, relieves pain, and improves body function."
-    />
+    <div
+      class="card-animate opacity-0 translate-y-5 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out"
+    >
+      <Card
+        img={cupping}
+        alt="Cupping"
+        title="Cupping"
+        text="A manual therapy that increases circulation, relieves pain, and improves body function."
+      />
+    </div>
 
-    <Card
-      img={guasha}
-      alt="Guasha"
-      title="Guasha"
-      text="Enhances circulation, relieves pain, and supports lymphatic drainage."
-    />
+    <div
+      class="card-animate opacity-0 translate-y-5 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out"
+    >
+      <Card
+        img={guasha}
+        alt="Guasha"
+        title="Guasha"
+        text="Enhances circulation, relieves pain, and supports lymphatic drainage."
+      />
+    </div>
 
-    <Card
-      img={herbs}
-      alt="Herbalism"
-      title="Herbalism"
-      text="The use of plant extracts to support well-being, alleviate ailments, and manage symptoms."
-    />
+    <div
+      class="card-animate opacity-0 translate-y-5 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out"
+    >
+      <Card
+        img={herbs}
+        alt="Herbalism"
+        title="Herbalism"
+        text="The use of plant extracts to support well-being, alleviate ailments, and manage symptoms."
+      />
+    </div>
 
-    <Card
-      img={nutrition}
-      alt="Nutritional Consultations"
-      title="Nutritional Consultations"
-      text="A holistic approach to optimizing diet and supplementation with nutraceuticals."
-    />
+    <div
+      class="card-animate opacity-0 translate-y-5 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out"
+    >
+      <Card
+        img={nutrition}
+        alt="Nutritional Consultations"
+        title="Nutritional Consultations"
+        text="A holistic approach to optimizing diet and supplementation with nutraceuticals."
+      />
+    </div>
 
-    <Card
-      img={tuina}
-      alt="Tuina"
-      title="Tuina"
-      text="A therapeutic massage technique used to relieve pain, improve circulation, and manage symptoms."
-    />
+    <div
+      class="card-animate opacity-0 translate-y-5 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out"
+    >
+      <Card
+        img={tuina}
+        alt="Tuina"
+        title="Tuina"
+        text="A therapeutic massage technique used to relieve pain, improve circulation, and manage symptoms."
+      />
+    </div>
 
-    <Card
-      img={shonishin}
-      alt="Shoni Shin"
-      title="Shoni Shin"
-      text="A gentle traditional therapy for babies and children as an alternative to acupuncture."
-    />
+    <div
+      class="card-animate opacity-0 translate-y-5 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out"
+    >
+      <Card
+        img={shonishin}
+        alt="Shoni Shin"
+        title="Shoni Shin"
+        text="A gentle traditional therapy for babies and children as an alternative to acupuncture."
+      />
+    </div>
 
-    <Card
-      img={facial}
-      alt="Facial Rejuvenation Acupuncture"
-      title="Facial Rejuvenation Acupuncture"
-      text="A technique to enhance skin health, reducing signs of aging and sun damage."
-    />
+    <div
+      class="card-animate opacity-0 translate-y-5 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out"
+    >
+      <Card
+        img={facial}
+        alt="Facial Rejuvenation Acupuncture"
+        title="Facial Rejuvenation Acupuncture"
+        text="A technique to enhance skin health, reducing signs of aging and sun damage."
+      />
+    </div>
 
-    <Card
-      img={celluma}
-      alt="Celluma Light Therapy"
-      title="Celluma Light Therapy"
-      text="Physician-grade LED light therapy for breakouts, scarring, aging skin, and pain management."
-    />
+    <div
+      class="card-animate opacity-0 translate-y-5 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out"
+    >
+      <Card
+        img={celluma}
+        alt="Celluma Light Therapy"
+        title="Celluma Light Therapy"
+        text="Physician-grade LED light therapy for breakouts, scarring, aging skin, and pain management."
+      />
+    </div>
 
-    <Card
-      img={red}
-      alt="Far Infrared Light Therapy"
-      title="Far Infrared Light Therapy"
-      text="A deep-penetrating light therapy that increases circulation, relieves pain, and supports tissue regeneration."
-    />
+    <div
+      class="card-animate opacity-0 translate-y-5 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out"
+    >
+      <Card
+        img={red}
+        alt="Far Infrared Light Therapy"
+        title="Far Infrared Light Therapy"
+        text="A deep-penetrating light therapy that increases circulation, relieves pain, and supports tissue regeneration."
+      />
+    </div>
   </section>
+
   <Testimonials />
   <ButtonFixed />
+
+  <!-- Scroll-triggered animation script -->
+  <script is:inline>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("opacity-0", "translate-y-5");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll(".card-animate");
+      cards.forEach((card) => observer.observe(card));
+    });
+  </script>
 </Layout>
