@@ -1,63 +1,6 @@
-<script>
-  // Create main 'Book Now' button
-  const mainButton = document.createElement("button");
-  mainButton.textContent = "Book Now";
-  mainButton.id = "bookNowBtn";
-  mainButton.className =
-    "fixed bottom-4 right-4 bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-colors";
-
-  // Create overlay structure
-  const overlay = document.createElement("div");
-  overlay.id = "policyOverlay";
-  overlay.className =
-    "fixed inset-0 bg-black/50 hidden justify-center items-center p-4";
-
-  const overlayContent = document.createElement("div");
-  overlayContent.className =
-    "bg-white rounded-xl p-6 max-w-md w-full space-y-4";
-
-  // Policy agreement elements
-  const label = document.createElement("label");
-  label.className = "flex items-start space-x-3";
-  label.innerHTML = `
-  <input type="checkbox" id="policyCheckbox" class="mt-1">
-  <span class="text-gray-700">
-    I have read and agree to the 
-    <a href="https://samaya-staging.netlify.app/privacy" class="text-blue-600 hover:underline">cancellation policy</a>
-  </span>
-`;
-
-  // Overlay action button
-  const overlayButton = document.createElement("button");
-  overlayButton.textContent = "Book Now";
-  overlayButton.id = "overlayBookNowBtn";
-  overlayButton.className =
-    "w-full bg-gray-400 text-white px-6 py-3 rounded-lg cursor-not-allowed";
-  overlayButton.disabled = true;
-
-  // Assemble overlay
-  overlayContent.appendChild(label);
-  overlayContent.appendChild(overlayButton);
-  overlay.appendChild(overlayContent);
-
-  // Add elements to DOM
-  document.body.append(mainButton, overlay);
-
-  // Event handlers
-  mainButton.addEventListener("click", () => {
-    overlay.classList.remove("hidden");
-  });
-
-  document.getElementById("policyCheckbox").addEventListener("change", (e) => {
-    const btn = document.getElementById("overlayBookNowBtn");
-    btn.disabled = !e.target.checked;
-    btn.classList.toggle("bg-blue-600", e.target.checked);
-    btn.classList.toggle("bg-gray-400", !e.target.checked);
-    btn.classList.toggle("cursor-pointer", e.target.checked);
-    btn.classList.toggle("cursor-not-allowed", !e.target.checked);
-  });
-
-  document.getElementById("overlayBookNowBtn").addEventListener("click", () => {
-    window.location.href = "https://cal.com/mattosurf";
-  });
-</script>
+<iframe
+  frameborder="0"
+  height="28"
+  scrolling="no"
+  src="https://wmc.janeapp.com/embed/book_online"
+  width="177"></iframe>

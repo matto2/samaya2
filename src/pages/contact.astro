@@ -1,4 +1,5 @@
 ---
+import Book2 from "../components/Book2.astro";
 import Layout from "../layouts/Layout.astro";
 // import { MapPin } from "lucide-astro";
 ---
@@ -21,8 +22,7 @@ import Layout from "../layouts/Layout.astro";
       Contact Us
     </h3> -->
     <p class="mb-6">
-      Reach out with any questions or to schedule an appointment. Fill out the
-      form below or call/text us at <a
+      Reach out with any questions via the form below or call/text us at <a
         href="tel:(831) 588-9581"
         class="text-[#bf7644] hover:text-orange-800">831-588-9581</a
       >
@@ -163,5 +163,8 @@ import Layout from "../layouts/Layout.astro";
         Apple Maps
       </a>
     </p>
+    <div class="flex justify-center items-center mt-4">
+      <Book2 />
+    </div>
   </div>
 </Layout>
